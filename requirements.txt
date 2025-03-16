@@ -1,0 +1,19 @@
+pytube
+yt-dlp
+mutagen
+ffmpeg
+openai
+langchain
+chromadb
+tiktoken
+pandas
+numpy
+transformers
+faiss-cpu
+fastapi
+uvicorn
+streamlit
+requests
+pydantic
+torch  # Optional, needed if using local models
+langchain_community
