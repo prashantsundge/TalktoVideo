@@ -1,54 +1,67 @@
+
+
 # TalktoVideo
-TalkToVideo
 
-# YouTube Video AI Chatbot  
+TalktoVideo is a Streamlit-based application that allows users to extract, summarize, and chat with YouTube videos. It enables users to transcribe audio from YouTube videos, generate summaries, and ask context-based questions using a language model.
 
-This project allows users to input a YouTube video URL, extract the audio, generate a transcript, summarize the content, and interact with a chatbot that provides context-based answers from the transcript.  
+## Features
+- Download and extract audio from YouTube videos.
+- Transcribe the extracted audio using AssemblyAI.
+- Store and process transcription for effective retrieval.
+- Generate a concise summary of the transcription.
+- Enable users to ask questions and receive context-aware answers using an LLM-powered chatbot.
 
-## Features  
-- **Transcribe Audio from YouTube Videos** – Extracts audio and converts it into text.  
-- **Process and Organize Content** – Structures the transcript for efficient retrieval.  
-- **Generate Summaries** – Creates a concise summary of the entire transcript.  
-- **AI Chatbot for Q&A** – Enables users to ask questions and receive accurate, context-aware responses using a language model.  
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo>.git
+   cd TalktoVideo
+   ```
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv myenv
+   source myenv/bin/activate  # On macOS/Linux
+   myenv\Scripts\activate     # On Windows
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Set up environment variables by creating a `.env` file:
+   ```plaintext
+   ASSEMBLY_AI_KEY=your_assemblyai_api_key
+   OPENAI_API_KEY=your_openai_api_key
+   ```
 
-## Steps to Build the Project  
-
-1. **Transcribing Audio from YouTube Videos**  
-   - Download the video using `pytube` or `yt-dlp`.  
-   - Extract audio and convert it to MP3 using `ffmpeg`.  
-   - Transcribe the audio using OpenAI's Whisper or any ASR model.  
-
-2. **Processing and Organizing the Transcript**  
-   - Clean and preprocess the transcript.  
-   - Chunk long transcripts into manageable sections.  
-   - Store processed data in a vector database (e.g., ChromaDB or FAISS) for retrieval.  
-
-3. **Generating a Summary**  
-   - Use an LLM (e.g., OpenAI GPT, Hugging Face models) to summarize the transcript.  
-   - Store the summary alongside the original transcript.  
-
-4. **Building the Chatbot for Q&A**  
-   - Implement a retrieval-based system using embeddings.  
-   - Allow users to input queries and retrieve relevant transcript sections.  
-   - Use an LLM to generate responses based on retrieved content.  
-
-## Technologies Used  
-- Python  
-- OpenAI Whisper (for transcription)  
-- LangChain  
-- FAISS / ChromaDB (for vector storage)  
-- FastAPI / Streamlit (for UI and API)  
-- Transformers  
-- OpenAI API / Llama models  
-
-## How to Run the Project  
+## Usage
+Run the application with:
 ```bash
-# Create and activate a virtual environment
-conda create --name youtube_chatbot python=3.10 -y
-conda activate youtube_chatbot
+streamlit run app.py
+```
 
-# Install dependencies
-pip install -r requirements.txt
+## Steps Involved
+1. **Transcribing Audio from YouTube Videos:**
+   - Uses `yt_dlp` to download and extract audio.
+   - Transcribes the extracted audio using AssemblyAI.
+2. **Processing and Organizing Content for Effective Retrieval:**
+   - Stores transcriptions in a structured format.
+   - Splits text into chunks for efficient vector search.
+3. **Creating a Summary for the Entire Transcript:**
+   - Uses an LLM model to generate a concise summary.
+4. **Enabling Users to Query and Receive Context-Based Answers:**
+   - Implements FAISS-based vector retrieval.
+   - Uses an OpenAI-powered chatbot to respond to queries.
 
-# Run the application
-python app.py
+## Technologies Used
+- Python
+- Streamlit
+- yt_dlp
+- AssemblyAI
+- OpenAI API
+- FAISS (Facebook AI Similarity Search)
+- LangChain
+
+## License
+This project is licensed under the MIT License.
+
+
